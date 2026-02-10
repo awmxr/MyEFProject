@@ -64,6 +64,11 @@ public class ApplicationDbContext : DbContext
           .WithOne(c => c.Fluent_Book)
           .HasForeignKey<Fluent_Book>(c => c.BookDetail_Id);
 
+        modelBuilder.Entity<Fluent_Book>()
+            .HasOne(c => c.Fluent_Publisher)
+            .WithMany(c => c.Fluent_Books)
+            .HasForeignKey(c => c.Publisher_Id);
+
 
         #endregion
 
