@@ -22,6 +22,10 @@ public class Fluent_Author
         {
             return $"{FirstName} {LastName}";
         }
-    } 
+    }
+
+
+    public ICollection<Fluent_BookAuthor> Fluent_BookAuthors { get; set; }
+
 
 }

@@ -22,6 +22,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Fluent_Author> Fluent_Author { get; set; }
     public DbSet<Fluent_Publisher> Fluent_Publishers { get; set; }
     public DbSet<Fluent_Category> Fluent_Categories { get; set; }
+    public DbSet<Fluent_BookAuthor> Fluent_BookAuthors { get; set; }
 
 
 
@@ -98,7 +99,25 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Fluent_Category>()
             .ToTable("tbl_CategoryFluent");
         modelBuilder.Entity<Fluent_Category>()
-            .Property(c=> c.Name).HasColumnName("CategoryName");    
+            .Property(c=> c.Name).HasColumnName("CategoryName");
+
+        #endregion
+
+        #region Relation Many To Many
+
+        modelBuilder.Entity<Fluent_BookAuthor>()
+            .HasKey(c => new { c.Author_Id, c.Book_Id });
+
+        modelBuilder.Entity<Fluent_BookAuthor>()
+            .HasOne(c => c.Fluent_Book)
+            .WithMany(c => c.Fluent_BookAuthors)
+            .HasForeignKey(c => c.Book_Id);
+
+        modelBuilder.Entity<Fluent_BookAuthor>()
+           .HasOne(c => c.Fluent_Author)
+           .WithMany(c => c.Fluent_BookAuthors)
+           .HasForeignKey(c => c.Author_Id);
+
 
         #endregion
     }
