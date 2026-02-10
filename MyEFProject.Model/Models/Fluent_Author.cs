@@ -1,0 +1,27 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MyEFProject.Model.Models;
+
+public class Fluent_Author
+{
+    
+    public int Author_Id { get; set; }
+    
+    public string FirstName { get; set; }
+    
+    public string LastName { get; set; }
+    
+    public DateTime BirthDay { get; set; }
+    public string Location { get; set; }
+
+    
+    public string FullName
+    {
+        get
+        {
+            return $"{FirstName} {LastName}";
+        }
+    } 
+
+}

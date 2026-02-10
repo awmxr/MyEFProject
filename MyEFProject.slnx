@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MyEFProject.DataAccess/MyEFProject.DataAccess.csproj" />
+  <Project Path="MyEFProject.Model/MyEFProject.Model.csproj" />
+  <Project Path="MyEFProject/MyEFProject.csproj" />
+</Solution>
