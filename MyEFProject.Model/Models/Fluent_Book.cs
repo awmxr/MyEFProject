@@ -12,8 +12,11 @@ public class Fluent_Book
     public double Price { get; set; }
     public string PriceRange { get; set; }
     public int Category_Id { get; set; }
-    public int BookDetail_Id { get; set; }
+    
     public int Publisher_Id { get; set; }
+
+    public int BookDetail_Id { get; set; }
+    public Fluent_BookDetail Fluent_BookDetail { get; set; }
 
 
 

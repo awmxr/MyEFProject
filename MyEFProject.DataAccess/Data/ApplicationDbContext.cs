@@ -41,6 +41,8 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Fluent_BookDetail>()
             .Property(c => c.NumberOfChapters).IsRequired();
 
+      
+
         #endregion
 
 
@@ -56,6 +58,11 @@ public class ApplicationDbContext : DbContext
             .HasMaxLength(400);
         modelBuilder.Entity<Fluent_Book>()
             .Property(c => c.Price).IsRequired();
+
+        modelBuilder.Entity<Fluent_Book>()
+          .HasOne(c => c.Fluent_BookDetail)
+          .WithOne(c => c.Fluent_Book)
+          .HasForeignKey<Fluent_Book>(c => c.BookDetail_Id);
 
 
         #endregion
