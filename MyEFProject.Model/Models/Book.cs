@@ -31,6 +31,8 @@ public class Book
     public int Publisher_Id { get; set; }
     public Publisher Publisher { get; set; }
 
+    public List<BookAuthor> BookAuthors { get; set; }
+
 
 
 }
