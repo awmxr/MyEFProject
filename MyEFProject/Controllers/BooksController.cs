@@ -87,5 +87,13 @@ namespace MyEFProject.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public void PlayGround()
+        {
+            var bookTemp = _db.Books.FirstOrDefault();
+            bookTemp.Price = 100;
+
+            var bookCollection = _db.Books;
+        }
     }
 }
